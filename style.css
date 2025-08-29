@@ -1,0 +1,526 @@
+/* Общие стили */
+body {
+  font-family: 'Inter', sans-serif; /* Используем более современный шрифт Inter */
+  margin: 0;
+  padding: 0;
+  background-color: #000005; /* Практически абсолютный черный фон */
+  color: #e0e0e0; /* Светлый текст для лучшей читаемости */
+  line-height: 1.6; /* Улучшаем читаемость длинных текстов */
+  scroll-behavior: smooth; /* Плавный скролл по якорям */
+  overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
+  position: relative; /* Для фоновых эффектов */
+}
+
+/* Фоновый градиент с анимацией для тела страницы */
+body::before {
+  content: '';
+  position: fixed; /* Фиксированный фон */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #000005 0%, #080812 50%, #000005 100%); /* Плавный фоновый градиент */
+  background-size: 200% 200%; /* Увеличиваем размер для анимации */
+  animation: backgroundShift 28s ease infinite alternate; /* Медленная анимация сдвига фона */
+  z-index: -1; /* Помещаем фон за остальными элементами */
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Шапка */
+.header {
+  background-image: url('img/header_fone.png'); /* Заглушка для изображения */
+  background-size: cover;
+  background-position: center;
+  height: 280px; /* Немного увеличиваем высоту */
+  display: flex; /* Используем flexbox для центрирования */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden; /* Скрываем избыточный фон, если он есть */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.95); /* Максимально выраженная тень к шапке */
+  border-bottom-left-radius: 35px; /* Ещё более скругленные углы снизу */
+  border-bottom-right-radius: 35px;
+  margin-bottom: 25px;
+  transform: translateY(0); /* Начальное состояние для анимации */
+  transition: transform 0.6s ease-out; /* Плавный переход для заголовка */
+}
+
+.header:hover {
+  transform: translateY(-5px); /* Небольшой подъем при наведении */
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 5, 0.95), rgba(0, 0, 5, 1)); /* ПОЧТИ ПОЛНОСТЬЮ непрозрачный градиент поверх изображения */
+  z-index: 1;
+}
+
+.gradient-text {
+  font-size: 4.5rem; /* Ещё больше размер для лучшей заметности */
+  font-weight: 900; /* Очень жирный шрифт */
+  background: linear-gradient(45deg, #a855f7, #ec4899, #60a5fa, #a855f7); /* Новый, более динамичный градиент: пурпурный, розовый, синий */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 28px rgba(168, 85, 247, 1), 0 0 50px rgba(236, 72, 153, 0.8); /* Усиленное свечение к тексту */
+  letter-spacing: 4px; /* Увеличиваем расстояние между буквами */
+  animation: textGlowPulse 2.8s infinite alternate ease-in-out; /* Более выраженная анимация свечения текста */
+  z-index: 2;
+  position: relative;
+  padding: 0 15px; /* Немного отступа, чтобы свечение не обрезалось */
+}
+
+@keyframes textGlowPulse {
+  0% {
+      text-shadow: 0 0 20px rgba(168, 85, 247, 0.8), 0 0 35px rgba(236, 72, 153, 0.6);
+      transform: scale(1);
+  }
+  50% {
+      text-shadow: 0 0 28px rgba(168, 85, 247, 1), 0 0 45px rgba(236, 72, 153, 0.9);
+      transform: scale(1.03);
+  }
+  100% {
+      text-shadow: 0 0 20px rgba(168, 85, 247, 0.8), 0 0 35px rgba(236, 72, 153, 0.6);
+      transform: scale(1);
+  }
+}
+
+/* Разделы */
+.section {
+  padding: 60px 30px; /* Увеличиваем отступы */
+  max-width: 1300px; /* Немного увеличиваем максимальную ширину */
+  margin: 0 auto; /* Центрируем раздел */
+  position: relative;
+  z-index: 1; /* Чтобы содержимое было поверх фонового градиента body */
+}
+
+.section-title {
+  font-size: 3rem; /* Более крупный заголовок */
+  margin-bottom: 40px; /* Увеличиваем отступ снизу */
+  text-align: center;
+  color: #ffffff;
+  border-bottom: 4px solid #1a1a2e; /* Темнее граница */
+  padding-bottom: 25px;
+  position: relative;
+  letter-spacing: 2px;
+  text-transform: uppercase; /* Заглавные буквы для заголовков */
+  font-weight: 800;
+  text-shadow: 0 0 15px rgba(96, 165, 250, 0.5); /* Усиленная тень для заголовка секции */
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; /* Поднимаем границу чуть выше */
+  left: 50%;
+  transform: translateX(-50%) scaleX(0); /* Изначально скрываем линию */
+  width: 120px; /* Короткая, но заметная линия под заголовком */
+  height: 5px; /* Чуть толще */
+  background-color: #60a5fa; /* Основной акцентный цвет (синий) */
+  border-radius: 5px;
+  transition: transform 0.6s ease-out; /* Анимация при наведении */
+}
+
+.section-title:hover::after {
+  transform: translateX(-50%) scaleX(1); /* Линия появляется при наведении */
+}
+
+/* Карточки */
+.place_card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Ещё чуть большие карточки */
+  gap: 50px; /* Увеличиваем расстояние между карточками */
+  padding: 50px 0;
+  justify-items: center; /* Центрируем карточки в сетке */
+}
+
+.card {
+  background-color: #080812; /* ЕЩЁ более темный фон для карточек */
+  border-radius: 30px; /* Ещё более скругленные углы */
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 1); /* Максимально глубокая тень */
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
+  border: 3px solid rgba(96, 165, 250, 0.1); /* ЕЩЁ более прозрачная рамка */
+  position: relative;
+  overflow: hidden;
+  cursor: pointer; /* Указываем, что элемент интерактивный */
+  max-width: 380px; /* Ограничиваем ширину карточки */
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.4), transparent 80%); /* Эффект свечения */
+  opacity: 0;
+  transition: all 0.7s ease-out;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card:hover::before {
+  width: 280%; /* Увеличиваем размер свечения */
+  height: 280%;
+  opacity: 1;
+}
+
+.card:hover {
+  background-color: #10101f; /* Немного меняем фон при наведении (но всё равно темно) */
+  border-color: #ec4899; /* Меняем цвет рамки на розовый */
+}
+
+.card img {
+  width: 220px; /* Возвращаем к чуть большему размеру для лучшей детализации */
+  height: 220px;
+  object-fit: cover; /* Используем cover, чтобы изображения не искажались */
+  border-radius: 25px; /* Скругленные углы для изображений */
+  margin-bottom: 25px;
+  border: 5px solid #60a5fa; /* Красивая рамка вокруг изображения */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+.card:hover img {
+  border-color: #a855f7; /* Меняем цвет рамки на пурпурный при наведении */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 1);
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.3rem; /* Чуть больший размер шрифта для текста в карточках */
+  color: #f8f8f8;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Футер */
+footer {
+  background-color: #000003; /* ЕЩЁ более темный фон для футера */
+  text-align: center;
+  padding: 35px; /* Увеличиваем отступы */
+  font-size: 1rem;
+  color: #777;
+  border-top: 3px solid #080812; /* Небольшая граница сверху */
+  box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.7);
+  margin-top: 40px;
+}
+
+/* Плашка сверху (Sticky Navigation Bar) */
+.top-bar {
+  display: flex;
+  justify-content: center;
+  padding: 20px; /* Увеличиваем отступ */
+  gap: 25px; /* Увеличиваем расстояние между кнопками */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 5, 0.999); /* Почти ПОЛНОСТЬЮ непрозрачный фон для эффекта "стекла" */
+  backdrop-filter: blur(18px); /* Увеличиваем эффект размытия под панелью */
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
+  border-bottom: 2px solid rgba(96, 165, 250, 0.15);
+  flex-wrap: wrap; /* Кнопки могут переноситься на новую строку */
+}
+
+.menubut {
+  width: 220px; /* Немного увеличиваем ширину кнопок */
+  height: 65px; /* Увеличиваем высоту кнопок */
+  border: none;
+  outline: none;
+  color: #e0e0e0; /* Светлый текст */
+  background: #080812; /* Фон кнопки */
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 18px; /* Ещё более скругленные углы */
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  overflow: hidden; /* Важно для эффектов */
+  transition: all 0.35s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
+  transform: scale(1); /* Начальное состояние для анимации */
+}
+
+.menubut:hover {
+  transform: scale(1.02); /* Небольшое увеличение кнопки при наведении */
+}
+
+.menubut:before {
+  content: '';
+  background: linear-gradient(45deg, #a855f7, #ec4899, #60a5fa, #a855f7); /* Новый, яркий градиент для свечения */
+  position: absolute;
+  top: -5px; /* Расширяем рамку */
+  left: -5px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(15px); /* Увеличиваем размытие */
+  width: calc(100% + 10px); /* Расширяем рамку */
+  height: calc(100% + 10px);
+  animation: glowing 35s linear infinite; /* Чуть медленнее анимация */
+  opacity: 0;
+  transition: opacity .7s ease-in-out;
+  border-radius: 20px; /* Соответствует кнопке */
+}
+
+.menubut:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000005; /* Более темный фон для "заливки" */
+  left: 0;
+  top: 0;
+  border-radius: 18px;
+  transition: background 0.4s ease;
+}
+
+.menubut:hover:before {
+  opacity: 1;
+}
+
+.menubut:hover:after {
+  background: transparent; /* Убираем фон, чтобы градиент был виден */
+}
+
+.menubut:active {
+  color: #fff; /* Цвет текста при активации */
+  transform: scale(0.95) translateY(3px); /* Более выраженное уменьшение при нажатии */
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* Новые стили для .item */
+.item {
+  width: 95%; /* Чуть меньше ширина для лучшего центрирования в контейнере */
+  max-width: 1100px; /* Ограничиваем максимальную ширину */
+  height: 70px; /* Увеличил размер блока */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px; /* Более скругленные углы */
+  color: #fff; /* Белый текст */
+  font-weight: bold;
+  font-size: 1.2em; /* Чуть больший размер шрифта */
+  letter-spacing: 0.5px;
+  margin: 15px auto; /* Центрируем элемент и добавляем отступ */
+  position: relative;
+  overflow: hidden; /* Важно для эффектов */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7); /* Тень по умолчанию */
+
+  /* Начальный цвет фона */
+  background-color: #4a0073; /* Ещё темнее базовый фиолетовый */
+
+  /* Анимация */
+  animation: color-shift 5.5s infinite alternate ease-in-out; /* 5.5 секунд, бесконечно, туда-обратно, с плавностью */
+  transition: all 0.3s ease; /* Плавные переходы для общих свойств */
+}
+
+/* Задержка для каждого элемента, чтобы они переливались не одновременно */
+/* Для этой анимации лучше задавать задержки в HTML через style="animation-delay: X.Xs" */
+.item:nth-child(1) { animation-delay: 0s; }
+.item:nth-child(2) { animation-delay: 0.7s; }
+.item:nth-child(3) { animation-delay: 1.4s; }
+.item:nth-child(4) { animation-delay: 2.1s; }
+.item:nth-child(5) { animation-delay: 2.8s; }
+
+/* Определение ключевых кадров анимации */
+@keyframes color-shift {
+  0% {
+      background-color: #7129b0; /* Темнее пурпурный */
+      box-shadow: 0 0 18px rgba(113, 41, 176, 1); /* Тень для эффекта свечения */
+  }
+  33% {
+      background-color: #a82069; /* Темнее розовый */
+      box-shadow: 0 0 25px rgba(168, 32, 105, 1);
+  }
+  66% {
+      background-color: #3162a0; /* Темнее синий */
+      box-shadow: 0 0 18px rgba(49, 98, 160, 1);
+  }
+  100% {
+      background-color: #7129b0; /* Возвращаемся к темному пурпурному */
+      box-shadow: 0 0 12px rgba(113, 41, 176, 0.9);
+  }
+}
+
+/* Ховер для затемнения, как ты просил */
+.item:hover {
+  filter: brightness(1.2); /* Сделаем его чуть ярче вместо затемнения, чтобы соответствовать общему стилю свечения */
+  cursor: pointer;
+  transform: scale(1.05); /* Небольшое увеличение при наведении */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9); /* Усиленная тень при наведении */
+  transition: all 0.3s ease; /* Плавное изменение при наведении */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .header {
+      height: 200px;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+  }
+
+  .gradient-text {
+      font-size: 3.5rem;
+      letter-spacing: 2.5px;
+  }
+
+  .section-title {
+      font-size: 2.5rem;
+      padding-bottom: 18px;
+      margin-bottom: 30px;
+  }
+
+  .place_card {
+      grid-template-columns: 1fr; /* Одна колонка на мобильных устройствах */
+      padding: 30px;
+      gap: 35px;
+  }
+
+  .card {
+      padding: 25px;
+      border-radius: 25px;
+      max-width: 90%; /* Адаптация ширины для мобильных */
+  }
+
+  .card img {
+      width: 180px;
+      height: 180px;
+      border-radius: 20px;
+  }
+
+  .card p {
+      font-size: 1.15rem;
+  }
+
+  .menubut {
+      width: 170px;
+      height: 55px;
+      font-size: 1.05rem;
+      border-radius: 15px;
+  }
+
+  .top-bar {
+      gap: 12px;
+      padding: 15px;
+  }
+
+  .item {
+      width: 90%;
+      height: 65px;
+      font-size: 1.1em;
+      margin: 10px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+      height: 160px;
+  }
+  .gradient-text {
+      font-size: 2.8rem;
+      letter-spacing: 2px;
+  }
+
+  .section-title {
+      font-size: 2.1rem;
+      letter-spacing: 1.5px;
+  }
+
+  .section {
+      padding: 40px 20px;
+  }
+
+  .card img {
+      width: 150px;
+      height: 150px;
+  }
+
+  .card p {
+      font-size: 1rem;
+  }
+
+  .menubut {
+      width: 140px;
+      height: 50px;
+      font-size: 0.95rem;
+  }
+
+  .top-bar {
+      gap: 10px;
+      padding: 12px;
+  }
+
+  .item {
+      width: 85%;
+      height: 55px;
+      font-size: 1em;
+      margin: 8px auto;
+  }
+}
+/* Стили для встроенной иконки скачивания */
+/* Стили для встроенной иконки скачивания */
+.download-inline-icon {
+  display: inline-flex;       /* Позволяет иконке гибко выравниваться с текстом */
+  align-items: center;        /* Выравнивает иконку по центру по вертикали */
+  justify-content: center;    /* Центрирует содержимое, если его несколько */
+  margin-left: 10px;          /* Отступ слева от текста */
+  padding: 4px;               /* Увеличиваем кликабельную область вокруг иконки */
+  vertical-align: middle;     /* Выравнивание по базовой линии текста */
+  color: #60a5fa;             /* Цвет иконки (синий из нашей палитры) */
+  cursor: pointer;            /* Изменение курсора при наведении, показывающее интерактивность */
+  transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;         /* Слегка скругляем углы для фонового эффекта */
+  background-color: transparent; /* Изначально прозрачный фон */
+}
+
+.download-inline-icon:hover {
+  color: #a855f7;             /* Цвет при наведении (пурпурный) */
+  transform: translateY(-2px) scale(1.1); /* Небольшой эффект при наведении */
+  background-color: rgba(168, 85, 247, 0.1); /* Легкий фон при наведении */
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.3); /* Легкое свечение */
+}
+
+.download-icon-svg {
+  width: 22px;                /* Размер SVG иконки */
+  height: 22px;               /* Размер SVG иконки */
+}
+
+/* Изменения для контейнера параграфа, чтобы иконка была справа от текста */
+.text_in_card p {
+  display: flex;              /* Делаем параграф flex-контейнером */
+  justify-content: space-between; /* Распределяем элементы по краям */
+  align-items: center;        /* Выравниваем по центру по вертикали */
+  margin-bottom: 15px;        /* Отступ снизу для разделения с кнопкой "Скачать" */
+}
+
+.action-button {
+  width: 10px;
+  height: 10px;
+  display: none;
+}

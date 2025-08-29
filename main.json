@@ -1,0 +1,60 @@
+{
+  "basa": [
+    {"name": "SQL", "image": "img/sql_logo.png", "button": "curse/sql.zip"}
+  ],  
+  "minimum": [
+      {"name": "Python", "image": "img/python_logo.png", "button": "#"},
+      {"name": "Java", "image": "img/java_logo.png", "button": "#"},
+      {"name": "C++", "image": "img/c++_logo.png", "button": "#"},
+      {"name": "Lua", "image": "img/lua_logo.png", "button": "#"},
+      {"name": "C#", "image": "img/cr_logo.png", "button": "#"},
+      {"name": "Assembly", "image": "img/assembly_logo.png", "button": "#"},
+      {"name": "Swift", "image": "img/swift_logo.png", "button": "#"},
+      {"name": "Ruby", "image": "img/ruby_logo.png", "button": "#"},
+      {"name": "Kotlin", "image": "img/kotlin_logo.png", "button": "#"}
+    ],
+    "minimum_plus": [
+      {"name": "Python", "image": "img/python_logo.png", "button": "#"},
+      {"name": "Java", "image": "img/java_logo.png", "button": "#"},
+      {"name": "C++", "image": "img/c++_logo.png", "button": "#"},
+      {"name": "Lua", "image": "img/lua_logo.png", "button": "#"},
+      {"name": "C#", "image": "img/cr_logo.png", "button": "#"},
+      {"name": "Assembly", "image": "img/assembly_logo.png", "button": "#"},
+      {"name": "Swift", "image": "img/swift_logo.png", "button": "#"},
+      {"name": "Ruby", "image": "img/ruby_logo.png", "button": "#"},
+      {"name": "Kotlin", "image": "img/kotlin_logo.png", "button": "#"}
+    ],
+    "standard": [
+      {"name": "Python", "image": "img/python_logo.png", "button": "#"},
+      {"name": "Java", "image": "img/java_logo.png", "button": "#"},
+      {"name": "C++", "image": "img/c++_logo.png", "button": "#"},
+      {"name": "Lua", "image": "img/lua_logo.png", "button": "#"},
+      {"name": "C#", "image": "img/cr_logo.png", "button": "#"},
+      {"name": "Assembly", "image": "img/assembly_logo.png", "button": "#"},
+      {"name": "Swift", "image": "img/swift_logo.png", "button": "#"},
+      {"name": "Ruby", "image": "img/ruby_logo.png", "button": "#"},
+      {"name": "Kotlin", "image": "img/kotlin_logo.png", "button": "#"}
+    ],
+    "standard_plus": [
+      {"name": "Python", "image": "img/python_logo.png", "button": "#"},
+      {"name": "Java", "image": "img/java_logo.png", "button": "#"},
+      {"name": "C++", "image": "img/c++_logo.png", "button": "#"},
+      {"name": "Lua", "image": "img/lua_logo.png", "button": "#"},
+      {"name": "C#", "image": "img/cr_logo.png", "button": "#"},
+      {"name": "Assembly", "image": "img/assembly_logo.png", "button": "#"},
+      {"name": "Swift", "image": "img/swift_logo.png", "button": "#"},
+      {"name": "Ruby", "image": "img/ruby_logo.png", "button": "#"},
+      {"name": "Kotlin", "image": "img/kotlin_logo.png", "button": "#"}
+    ],
+    "profi": [
+      {"name": "Python", "image": "img/python_logo.png", "button": "#"},
+      {"name": "Java", "image": "img/java_logo.png", "button": "#"},
+      {"name": "C++", "image": "img/c++_logo.png", "button": "#"},
+      {"name": "Lua", "image": "img/lua_logo.png", "button": "#"},
+      {"name": "C#", "image": "img/cr_logo.png", "button": "#"},
+      {"name": "Assembly", "image": "img/assembly_logo.png", "button": "#"},
+      {"name": "Swift", "image": "img/swift_logo.png", "button": "#"},
+      {"name": "Ruby", "image": "img/ruby_logo.png", "button": "#"},
+      {"name": "Kotlin", "image": "img/kotlin_logo.png", "button": "#"}
+    ]
+  }

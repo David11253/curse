@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Курсы</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header"><div> <h1 class="gradient-text">BlueCode</h1> </div>
+  <div class="top-bar">
+    <button class="menubut" onclick="loadCourses('basa', 10)">база</button>
+    <button class="menubut" onclick="loadCourses('minimum', 5)">Минимум</button>
+    <button class="menubut" onclick="loadCourses('minimum_plus', 10)">Минимум +</button>
+    <button class="menubut" onclick="loadCourses('standard', 20)">Стандарт</button>
+    <button class="menubut" onclick="loadCourses('standard_plus', 30)">Стандарт +</button>
+    <button class="menubut" onclick="loadCourses('profi', 50)">Профи</button>
+  </div>
+</header>
+  <main>
+    <div id="course-container" class="place_card"></div>
+  </main>
+  
+
+</body>
+<script src="main.js"></script>
+<footer>
+    <div class="item">Минимум --> это курс который позволит вам писать минимальный код по типу калькулятора</div>
+    <div class="item">Минимум+ --> это вы уже будете владень выше написанному + библеотеки</div>
+    <div class="item">Стандарт --> это вы сможете уже писать код который сможет уже хоть что то полезное делать</div>
+    <div class="item">Стандарт+ --> это тоже самое что и стандарт но с библеотеками вы сможете делать автоматизацию</div>
+    <div class="item">Профи  --> это ну название само за себя говорит</div>
+</footer>
+<div style="text-align: center;"><p>© 2025 Все права защищены.</p></div>
+</html>
